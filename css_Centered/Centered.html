@@ -3,8 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>水平垂直居中</title>
+    <link rel="stylesheet" href="../base.css">
+    <style>
+        #page{
+
+        }
+
+    </style>
 </head>
 <body>
+<div id="page">
+    <h1>元素的水平垂直居中</h1>
+    <h3>水平居中</h3>
+    <ul>
+        <li>
+            <h4>行内或类行内元素（比如文本和链接）</h4>
+            <p>在块级父容器中让行内元素居中，只需使用 <code>text-align: center;</code>；这种方法可以让 <code>inline/inline-block/inline-table/inline/flex</code>等类型的元素实现居中。</p>
+        </li>
+        <li>
+            <h4>块级元素</h4>
+            <p>可以设置 <code>margin: 0 auto;</code>即可实现水平居中。无论父级容器和块级元素的宽度如何变化，都不会影响块级元素的居中效果。</p>
+            <p>若知道元素宽度，可以设置<code>position: absolute; left: 50%; margin-left: -width/2;</code>即可实现水平居中。</p>
+            <p>若不知道其宽度，可以设置 <code>position: absolute; left: 50%; transform: translateX(-50%);</code>即可实现水平居中。</p>
 
+        </li>
+        <li>
+            <h4>多个块级元素</h4>
+            <p>如果要让多个块级元素在同一水平线上居中，其父元素设置<code>text-align: center</code>，子元素<code>display: inline-block</code>，将子元素设置为行内块级元素。</p>
+        </li>
+        <li>
+            <h4>flexbox实现多个块状元素的水平居中</h4>
+            <p>设置<code>display: flex; justify-content: center;</code>即可实现水平居中</p>
+        </li>
+    </ul>
+    <h3>垂直居中</h3>
+    <ul>
+        <li>
+            <h4>行内或类行内元素（比如文本和链接）</h4>
+            <p>对于单行行内或者文本元素，只需为它们添加等值的<code>padding-top</code>和<code>padding-bottom</code>就可以实现垂直居中。</p>
+            <p>如果因为某些原因我们不能使用<code>padding</code>属性来实现垂直居中（行内元素的<code>padding-top</code>和<code>padding-bottom</code>无作用），
+                而且已知文本不会换行，那么就可以让<code>line-height</code>和<code>height</code>相等，从而实现垂直居中。</p>
+            <p>对于多行文本，同样可以使用等值<code>padding-top</code>和<code>padding-bottom</code>的方式实现垂直居中。</p>
+            <p>对于多行文本，如果你在使用过程中发现这种方法没见效，那么你可以通过 CSS 为文本设置一个类似<code>table-cell</code>的父级容器，然后使用<code>vertical-align</code>属性实现垂直居中。</p>
+        </li>
+        <li>
+            <h4>块级元素</h4>
+            <p>若知道元素宽度，可以设置<code>position: absolute; top: 50%; margin-top: -height/2;</code>即可实现垂直居中。</p>
+            <p>若不知道其宽度，可以设置 <code>position: absolute; top: 50%; transform: translateY(-50%);</code>即可实现垂直居中。</p>
+
+        </li>
+        <li>
+            <h4>flexbox实现多个块状元素的垂直居中</h4>
+            <p>设置<code>display: flex; flex-direction: column;</code>即可实现垂直居中</p>
+        </li>
+        <li>
+            <h4>伪元素</h4>
+            <p>在垂直居中的元素上添加伪元素，设置伪元素的高等于父级容器的高，然后为文本添加<code>vertical-align: middle;</code>样式，即可实现垂直居中。</p>
+        </li>
+    </ul>
+    <h3>水平且垂直居中</h3>
+    <ul>
+        <li>
+            <h4>宽高固定元素</h4>
+            <p>设定父级容器为相对定位的容器，设定子元素绝对定位的位置<code>position: absolute; top: 50%; left: 50%;</code>，
+                最后使用负向<code>margin</code>实现水平和垂直居中，<code>margin</code>的值为宽高的一半。</p>
+        </li>
+        <li>
+            <h4>宽高不固定元素</h4>
+            <p>设定父级容器为相对定位的容器，设定子元素绝对定位的位置<code>position: absolute; top: 50%; left: 50%;</code>，
+                最后使用<code>transform: translate(-50%, -50%);</code>实现水平和垂直居中。
+                使用<code>transform</code>有一个缺陷，就是当计算结果含有小数时（比如 0.5），会让整个元素看起来是模糊的，一种解决方案就是为父级元素设置 <code>transform-style: preserve-3d;</code>。</p>
+        </li>
+        <li>
+            <h4>flexbox</h4>
+            <p>设置<code>display: flex; flex-direction: column; justify-content: center</code></p>
+        </li>
+    </ul>
+    <div class="return">
+        <a href="../index.html">返回首页</a>
+    </div>
+</div>
 </body>
 </html>

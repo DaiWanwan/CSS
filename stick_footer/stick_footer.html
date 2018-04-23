@@ -3,27 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Stick footer</title>
+    <link rel="stylesheet" href="../base.css">
     <style>
         html,body {
-            margin: 0;
-            padding:0;
             height: 100%;
-            text-align: center;
             color: white;
         }
         #container {
             min-height:100%;
             position: relative;
         }
-        #header {
-            background: #000000;
-            height: 50px;
-            line-height: 50px;
-        }
         #page {
-            max-width: 960px;
-            color: black;
-            margin: 0 auto;
             padding: 10px 20px 60px 20px;
             /*padding-bottom: 60px;  !*等于footer的高度*!*/
         }
@@ -36,20 +26,9 @@
             clear:both;
             line-height: 60px;
         }
-        #page h3{
-            text-align:left;
-        }
-        #page code{
-            margin: 0 4px;
-            padding: 0;
-            font-size: 100%;
-            color: #c7254e;
-            background-color: #f9f2f4;
-            border-radius: 4px;
-        }
-        #page p{
-            text-align:left;
-            line-height: 1.5em;
+        #page img{
+            width: 435px;
+            height: 150px;
             margin: 0 0 10px 10px;
         }
     </style>
@@ -57,18 +36,25 @@
 <body>
 <div id="container">
     <div id="header">Header Section</div>
-    <div id="page" class="clearfix">
-        <h1>stick footer布局</h1>
-        <h3>要求:</h3>
-        <p>1. 如果页面内容不够长的时候，页脚块粘贴在视窗底部；</p>
-        <p>2. 如果内容足够长时，页脚块会被内容向下推送;</p>
-        <h3>方法:</h3>
-        <p>1. <code>&lt html &gt</code>和<code>&lt body &gt</code>标签：设置其高度为100%，这样子元素方便设置百分比的高度。</p>
-        <p>2. 设置一个容器包裹整个页面，此处我设计了一个<code>&lt div id="container" &gt</code>，设置其最小高度高度为100%，<code> min-height:100%;</code>
-            这样可以满足第一条条件，即内容不足时，<code>footer</code>也在底部。同时设置其<code>position: relative;</code>，方便第五步设置<code>footer</code>的位置。
-        </p>
-        <P>3. <code>&lt page &gt</code>设置<code>padding-bottom</code>，使其值等于<code>footer</code>的高度，此处设置的是60px。</P>
-        <p>4. <code>footer</code>设置 <code>position: absolute;bottom: 0;height: 60px;</code>此处60px和<code>page</code>的<code>padding-bottom</code>相等。</p>
+    <div id="page">
+        <div class="content">
+            <h1>stick footer布局</h1>
+            <h3>要求:</h3>
+            <p>1. 如果页面内容不够长的时候，页脚块粘贴在视窗底部；</p>
+            <p>2. 如果内容足够长时，页脚块会被内容向下推送;</p>
+            <h3>方法:</h3>
+            <p>页面DOM结构</p>
+            <img src="./image.png" alt="页面html">
+            <p>1. <code>&lt html &gt</code>和<code>&lt body &gt</code>标签：设置其高度为100%，这样子元素方便设置百分比的高度。</p>
+            <p>2. 设置一个容器包裹整个页面，此处我设计了一个<code>&lt div id="container" &gt</code>，设置其最小高度高度为100%，<code> min-height:100%;</code>
+                这样可以满足第一条条件，即内容不足时，<code>footer</code>也在底部。同时设置其<code>position: relative;</code>，方便第五步设置<code>footer</code>的位置。
+            </p>
+            <P>3. <code>page</code>设置<code>padding-bottom</code>，使其值等于<code>footer</code>的高度，此处设置的是60px。</P>
+            <p>4. <code>footer</code>设置 <code>position: absolute;bottom: 0;height: 60px;</code>此处60px和<code>page</code>的<code>padding-bottom</code>相等。</p>
+        </div>
+        <div class="return">
+            <a href="../index.html">返回首页</a>
+        </div>
     </div>
     <div id="footer">Footer Section</div>
 </div>
